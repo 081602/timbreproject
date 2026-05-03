@@ -1,98 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Timbre Project</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital@0;1&display=swap" rel="stylesheet">
-<style>
-  :root { --cream: #f5f0e8; --ink: #1a1a1a; --rust: #c0392b; --faded: #888070; --rule: #d0c8b8; }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--cream); color: var(--ink); font-family: 'Courier Prime', monospace; min-height: 100vh; overflow-x: hidden; }
-  header { text-align: center; padding: 3.5rem 2rem 1.5rem; border-bottom: 1px solid var(--rule); opacity: 0; animation: fadeUp 0.8s ease forwards; }
-  .site-logo { max-width: 300px; height: auto; display: block; margin: 0 auto; }
-  nav { display: flex; justify-content: center; border-bottom: 1px solid var(--rule); opacity: 0; animation: fadeUp 0.8s 0.15s ease forwards; }
-  nav a { display: block; padding: 0.85rem 1.6rem; font-family: 'Courier Prime', monospace; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--faded); border-right: 1px solid var(--rule); transition: color 0.2s, background 0.2s; }
-  nav a:first-child { border-left: 1px solid var(--rule); }
-  nav a:hover { color: var(--ink); background: rgba(0,0,0,0.03); }
-  nav a.active { color: var(--rust); font-style: italic; }
-  main { max-width: 820px; margin: 0 auto; padding: 4rem 2rem 6rem; }
-  .listen-section { opacity: 0; animation: fadeUp 0.8s 0.3s ease forwards; }
-  .section-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--faded); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
-  .albums-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 3.5rem; }
-  .album-card { background: var(--cream); padding: 1.6rem 1.8rem; text-decoration: none; color: inherit; transition: background 0.2s; display: flex; flex-direction: column; gap: 0.35rem; }
-  .album-card:hover { background: #ede8df; }
-  .album-num { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--faded); text-transform: uppercase; }
-  .album-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 400; line-height: 1.3; }
-  .album-action { margin-top: 0.5rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rust); }
-  .secondary-links { opacity: 0; animation: fadeUp 0.8s 0.45s ease forwards; }
-  .link-row { display: flex; align-items: baseline; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
-  .link-row:first-child { border-top: 1px solid var(--rule); }
-  .link-row-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faded); min-width: 80px; }
-  .link-row a { font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); transition: color 0.2s, border-color 0.2s; }
-  .link-row a:hover { color: var(--rust); border-color: var(--rust); }
-  footer { text-align: center; padding: 2rem; border-top: 1px solid var(--rule); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--faded); opacity: 0; animation: fadeUp 0.8s 0.6s ease forwards; }
-  footer a { color: var(--rust); text-decoration: none; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-  @media (max-width: 520px) { .albums-grid { grid-template-columns: 1fr; } nav a { padding: 0.75rem 1rem; font-size: 0.65rem; } }
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function MM_swapImgRestore() { //v2.0
+  if (document.MM_swapImgData != null)
+    for (var i=0; i<(document.MM_swapImgData.length-1); i+=2)
+      document.MM_swapImgData[i].src = document.MM_swapImgData[i+1];
+}
+
+function MM_preloadImages() { //v2.0
+  if (document.images) {
+    var imgFiles = MM_preloadImages.arguments;
+    if (document.preloadArray==null) document.preloadArray = new Array();
+    var i = document.preloadArray.length;
+    with (document) for (var j=0; j<imgFiles.length; j++) if (imgFiles[j].charAt(0)!="#"){
+      preloadArray[i] = new Image;
+      preloadArray[i++].src = imgFiles[j];
+  } }
+}
+
+function MM_swapImage() { //v2.0
+  var i,j=0,objStr,obj,swapArray=new Array,oldArray=document.MM_swapImgData;
+  for (i=0; i < (MM_swapImage.arguments.length-2); i+=3) {
+    objStr = MM_swapImage.arguments[(navigator.appName == 'Netscape')?i:i+1];
+    if ((objStr.indexOf('document.layers[')==0 && document.layers==null) ||
+        (objStr.indexOf('document.all[')   ==0 && document.all   ==null))
+      objStr = 'document'+objStr.substring(objStr.lastIndexOf('.'),objStr.length);
+    obj = eval(objStr);
+    if (obj != null) {
+      swapArray[j++] = obj;
+      swapArray[j++] = (oldArray==null || oldArray[j-1]!=obj)?obj.src:oldArray[j];
+      obj.src = MM_swapImage.arguments[i+2];
+  } }
+  document.MM_swapImgData = swapArray; //used for restore
+}
+//-->
+</script>
 </head>
-<body>
-<header>
-  <img src="images/albumcover.gif" alt="Timbre Project" class="site-logo">
-</header>
-<nav>
-  <a href="index.html" class="active">Home</a>
-  <a href="albums.html">Albums</a>
-  <a href="shows.html">Shows</a>
-  <a href="bio.html">Bio</a>
-  <a href="buymusic.html">Buy Music</a>
-</nav>
-<main>
-  <section class="listen-section">
-    <p class="section-label">Listen</p>
-    <div class="albums-grid">
-      <a class="album-card" href="freesouvenirs/free_mp3s.html">
-        <span class="album-num">Vol. I</span>
-        <span class="album-name">Free Souvenirs</span>
-        <span class="album-action">&rarr; Hear tracks</span>
-      </a>
-      <a class="album-card" href="ruining/ruin_mp3s.html">
-        <span class="album-num">Vol. II</span>
-        <span class="album-name">Ruining Perfectly Good Songs</span>
-        <span class="album-action">&rarr; Hear tracks</span>
-      </a>
-      <a class="album-card" href="tropical/tropical_mp3s.html">
-        <span class="album-num">Vol. III</span>
-        <span class="album-name">Treating A Tropical Depression</span>
-        <span class="album-action">&rarr; Hear tracks</span>
-      </a>
-      <a class="album-card" href="chasing/chasing_mp3s.html">
-        <span class="album-num">Vol. IV &mdash; new</span>
-        <span class="album-name">Chasing A Sound</span>
-        <span class="album-action">&rarr; Hear tracks</span>
-      </a>
-    </div>
-  </section>
-  <section class="secondary-links">
-    <p class="section-label">More</p>
-    <div class="link-row">
-      <span class="link-row-label">Sounds like</span>
-      <a href="soundslike.html">See who reviewers compare us to</a>
-    </div>
-    <div class="link-row">
-      <span class="link-row-label">Stay in touch</span>
-      <a href="mailinglist.html">Join the mailing list</a>
-    </div>
-    <div class="link-row">
-      <span class="link-row-label">Streaming</span>
-      <a href="buymusic.html">Available on Spotify &amp; Apple Music</a>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>Timbre Project &nbsp;&middot;&nbsp; <a href="mailto:info@timbreproject.com">info@timbreproject.com</a></p>
-</footer>
+
+<body bgcolor="#FFFFFF" onLoad="MM_preloadImages('images/albums_roll.gif','#4294967295283');MM_preloadImages('images/shows_roll.gif','#4294967295783');MM_preloadImages('images/bio_roll.gif','#4294967295016');MM_preloadImages('images/buymusic_roll.gif','#4294967295766')">
+<table width="100%" border="0" height="427">
+  <tr align="center"> 
+    <td height="164" valign="top" colspan="3" width="100%"> 
+      <p>&nbsp;</p>
+      <p align="center"><img src="images/albumcover.gif" width="300" height="80"></p>
+                  <p align="center"><img src="images/home_it.gif" width="75" height="30" border="0"><a href="albums.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('document.Image7','document.Image7','images/albums_roll.gif','#4294967295283')"><img name="Image7" border="0" src="images/albums_reg.gif" width="80" height="30"></a><a href="shows.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('document.Image8','document.Image8','images/shows_roll.gif','#4294967295783')"><img name="Image8" border="0" src="images/shows_reg.gif" width="75" height="30"></a><a href="bio.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('document.Image9','document.Image9','images/bio_roll.gif','#4294967295016')"><img name="Image9" border="0" src="images/bio_reg.gif" width="55" height="30"></a><a href="buymusic.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('document.Image6','document.Image6','images/buymusic_roll.gif','#4294967295766')"><img name="Image6" border="0" src="images/buymusic_reg.gif" width="100" height="30"></a></p>
+      <p>&nbsp;</p>
+      <p align="center">&nbsp;</p>
+      <table width="100%" border="0" align="center">
+        <tr> 
+          <td>&nbsp;</td>
+          <td align="left" valign="top"><ul>
+              <li> 
+                <div align="left"><font color="#CC0033"><strong>Listen</strong></font><strong> 
+                  to the Timbre Project: tracks from <a href="freesouvenirs/free_mp3s.html">Free 
+                  Souvenirs</a>, <a href="ruining/ruin_mp3s.html">Ruining Perfectly Good Songs</a>,<br> 
+				  <a href="tropical/tropical_mp3s.html">Treating A Tropical Depression</a>
+				  , or tracks from the just released <a href="chasing/chasing_mp3s.html">Chasing A Sound</a></strong></div>
+              </li>
+            </ul></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td align="left" valign="top"><ul>
+              <li><strong>See a running list of who reviewers think Timbre Project 
+                <a href="soundslike.html">sounds like</a></strong></li>
+            </ul></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr> 
+<!--     <td width="25%">&nbsp;</td>
+         <td width="50%" align="left" valign="top"><ul>
+              <li><strong>See some recent <a href="showposters/posters.htm">posters</a></strong></li>
+            </ul></td>
+-->
+          <td width="25%">&nbsp;</td>
+        </tr>
+      </table>
+      <p><img src="images/chasing_girls.png" width="190" height="146
+	  " border=0></a></p>
+      <p><a href="mailinglist.html">JOIN THE MAILING LIST</a></p>
+      </td>
+  </tr>
+  <tr> 
+    <td height="129" width="100%" valign="top" colspan="3">&nbsp;</td>
+  </tr>
+</table>
 </body>
 </html>
