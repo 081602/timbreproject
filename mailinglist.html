@@ -2,6 +2,39 @@
 layout: default
 title: Timbre Project - Mailing List
 ---
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("SH-gloD3QGncR2gDb");
+
+  function submitForm(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submit-btn');
+    btn.value = 'Sending...';
+    btn.disabled = true;
+
+    var params = {
+      fullname: document.getElementById('fullname').value,
+      email: document.getElementById('email').value,
+      line1: document.getElementById('line1').value,
+      city: document.getElementById('city').value,
+      state: document.getElementById('state').value,
+      zip: document.getElementById('zip').value,
+      country: document.getElementById('country').value,
+      to_email: 'jaime@dalmeida.org'
+    };
+
+    emailjs.send('service_h0zuuxo', 'template_04b9vwr', params)
+      .then(function() {
+        document.getElementById('mailing-form').innerHTML = '<p><strong>Thanks! You have been added to the mailing list.</strong></p>';
+      }, function(error) {
+        btn.value = 'Submit';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+        console.error('EmailJS error:', error);
+      });
+  }
+</script>
+
 <p align="center">
   <a href="index.html"><img name="Image8" border="0" src="images/home_reg.gif" width="75" height="30"></a>
   <a href="albums.html"><img name="Image7" border="0" src="images/albums_reg.gif" width="80" height="30"></a>
@@ -12,44 +45,39 @@ title: Timbre Project - Mailing List
 <p>&nbsp;</p>
 <div style="max-width: 500px; text-align: left; margin: 0 auto;">
   <p>Stay on top of what's going on by signing up for the mailing list. You'll enjoy wonderously witty emails and enjoyment-enhancing anecdotes.</p>
-  <form action="mailto:info@timbreprojection.com" method="POST" enctype="multipart/form-data" name="EmailForm">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="60">Name:</td>
-        <td><input type=text name="fullname"></td>
-      </tr>
-      <tr>
-        <td width="60">Email:</td>
-        <td><input type=text name="email"></td>
-      </tr>
-      <tr>
-        <td width="60">Address:</td>
-        <td><input type=text name="line1"></td>
-      </tr>
-      <tr>
-        <td width="60">City:</td>
-        <td><input type=text name="city"></td>
-      </tr>
-      <tr>
-        <td width="60">State:</td>
-        <td><input type=text name="state"></td>
-      </tr>
-      <tr>
-        <td width="60">Zip:</td>
-        <td><input type=text name="zip"></td>
-      </tr>
-      <tr>
-        <td width="60">Country:</td>
-        <td><input type=text name="country"></td>
-      </tr>
-    </table>
-    <p>
-      <input type=submit value="submit">
-      <input type=hidden name="notes" value="">
-      <input type=hidden name="active" value="yes">
-      <input type=hidden name="a1" value="A142079EDF1935BC">
-      <input type=hidden name="u1" value="A142079EDF1935BC">
-      <input type=hidden name="notify" value="yes">
-    </p>
-  </form>
+  <div id="mailing-form">
+    <form onsubmit="submitForm(event)">
+      <table width="100%" border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td width="70">Name:</td>
+          <td><input type="text" id="fullname" name="fullname" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td width="70">Email:</td>
+          <td><input type="email" id="email" name="email" required style="width:100%"></td>
+        </tr>
+        <tr>
+          <td width="70">Address:</td>
+          <td><input type="text" id="line1" name="line1" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td width="70">City:</td>
+          <td><input type="text" id="city" name="city" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td width="70">State:</td>
+          <td><input type="text" id="state" name="state" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td width="70">Zip:</td>
+          <td><input type="text" id="zip" name="zip" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td width="70">Country:</td>
+          <td><input type="text" id="country" name="country" style="width:100%"></td>
+        </tr>
+      </table>
+      <p><input type="submit" id="submit-btn" value="Submit"></p>
+    </form>
+  </div>
 </div>
