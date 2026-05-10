@@ -36,19 +36,19 @@ td { text-align: center !important; }
     {% assign link = "/chasing/chasing_tracks.html" %}
   {% elsif album == "free" %}
     {% assign cover = "/images/free_cover.jpg" %}
-    {% assign link = "/freesouvenirs/free_index.html" %}
+    {% assign link = "/freesouvenirs/free_tracks.html" %}
   {% elsif album == "ruin" %}
     {% assign cover = "/images/ruin_cover.jpg" %}
-    {% assign link = "/ruining/ruin_index.html" %}
+    {% assign link = "/ruining/ruin_tracks.html" %}
   {% elsif album == "tropical" %}
     {% assign cover = "/images/tropical_cover.png" %}
-    {% assign link = "/tropical/tropical_index.html" %}
+    {% assign link = "/tropical/tropical_tracks.html" %}
   {% elsif album == "likepassengers" %}
     {% assign cover = "/images/like_passengers_cover.png" %}
-    {% assign link = "/likepassengers/lp_mp3s.html" %}
+    {% assign link = "/likepassengers/lp_tracks.html" %}
   {% elsif album == "bassriver" %}
     {% assign cover = "/images/bass_river_cover.png" %}
-    {% assign link = "/bassriver/bassriver_index.html" %}
+    {% assign link = "/bassriver/bass_tracks.html" %}
   {% endif %}
   {% if page.album == album %}
     <img src="{{ cover | relative_url }}" width="120" height="120" style="vertical-align:middle; margin: 4px;">
